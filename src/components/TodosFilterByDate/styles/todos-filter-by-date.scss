@@ -1,0 +1,66 @@
+.todos-filter-by-date {
+  $self: &;
+
+  display: flex;
+
+  &--disabled {
+    #{$self}__button,
+    #{$self}__datepicker {
+      pointer-events: none;
+      user-select: none;
+    }
+
+    #{$self}__button {
+      background: var(--secondary-color);
+    }
+
+    #{$self}__datepicker {
+      ::v-deep(.dp__input) {
+        background: var(--secondary-color);
+      }
+    }
+  }
+
+  &__datepicker {
+    --dp-font-size: 1.4rem !important;
+    --dp-input-icon-padding: 2.5rem;
+    --dp-input-padding: 0.5rem;
+    --dp-border-color: var(--light-color);
+    --dp-border-color-hover: var(--primary-color);
+    --dp-preview-font-size: 1.4rem !important;
+    --dp-cell-size: 2.4rem;
+    --dp-border-radius: 1rem !important;
+    --dp-cell-padding: 0;
+    --dp-border-color: var(--primary-color);
+
+    max-width: 10.5rem;
+    margin-right: 1rem;
+
+    ::v-deep(.dp__input) {
+      border-width: 0.2rem;
+    }
+
+    ::v-deep(.dp__theme_light) {
+      --dp-primary-color: var(--primary-color) !important;
+    }
+
+    ::v-deep(.dp__input) {
+      font-size: 1.4rem;
+      text-align: center;
+      line-height: 1.8;
+    }
+  }
+
+  &__button {
+    border: 0.1rem solid var(--light-color);
+    border-radius: 1rem;
+    font-size: 2.1rem;
+    padding: 0.5rem;
+    min-width: 3.7rem;
+    transition: border-color .3s;
+
+    &:hover {
+      border-color: var(--primary-color);
+    }
+  }
+}

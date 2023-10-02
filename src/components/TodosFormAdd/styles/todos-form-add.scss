@@ -1,0 +1,115 @@
+.todos-form-add {
+  display: grid;
+  gap: 1.6rem;
+  border-radius: 1rem;
+
+  &--disabled {
+    pointer-events: none;
+    user-select: none;
+    background: var(--secondary-color);
+  }
+
+  &__form {
+    display: grid;
+    gap: 1rem;
+    border-radius: inherit;
+    padding: 1.4rem 1.6rem 2rem;
+    border: 0.1rem solid var(--light-color);
+    box-shadow: 0 1px 20px rgb(240 240 240 / 80%);
+  }
+
+  &__input-container {
+    position: relative;
+    display: flex;
+    padding-bottom: 1.5rem;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    font: inherit;
+    width: 100%;
+    font-size: 1.6rem;
+    border: 0.1rem solid var(--light-color);
+    border-radius: 1rem;
+    overflow: hidden;
+
+    &--focus {
+      border: 0.2rem solid var(--primary-color);
+    }
+
+    input {
+      flex-grow: 1;
+      border: none;
+      padding: 0.8rem 1.6rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__error {
+    position: absolute;
+    left: 1rem;
+    bottom: 0;
+    font-size: 1.2rem;
+    color: #3573b5;
+  }
+
+  &__datepicker {
+    --dp-font-size: 1.4rem !important;
+    --dp-preview-font-size: 1.6rem !important;
+    --dp-border-radius: 1rem !important;
+    --dp-border-color: var(--primary-color);
+    --dp-border-color-hover: var(--primary-color);
+    --dp-input-padding: 0.6rem 1rem;
+
+    max-width: 10.5rem;
+    margin-left: 1rem;
+
+    ::v-deep(.dp__input) {
+      border-width: 0.2rem;
+    }
+
+    ::v-deep(.dp__theme_light) {
+      --dp-primary-color: var(--primary-color) !important;
+    }
+  }
+
+  &__show-form {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 1.2rem 1.4rem;
+    color: var(--primary-color);
+    font-size: 1.9rem;
+    border: 0.1rem solid var(--light-color);
+    border-radius: 1rem;
+    transition: box-shadow 0.2s;
+
+    &:hover {
+      box-shadow: 0 1px 20px rgb(240 240 240 / 80%);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-weight: 500;
+    color: #333;
+  }
+
+  &__close {
+    font-size: 2rem;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}

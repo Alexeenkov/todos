@@ -1,0 +1,19 @@
+.layout-default {
+  width: 100%;
+  max-width: 55rem;
+  margin: 3rem auto;
+
+  &__filters {
+    display: flex;
+    margin-bottom: 3.2rem;
+  }
+
+  &__main {
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  &__footer {
+    margin-top: 3.2rem;
+  }
+}

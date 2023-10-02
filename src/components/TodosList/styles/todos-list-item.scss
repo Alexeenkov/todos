@@ -1,0 +1,219 @@
+.todos-list-item {
+  $self: &;
+
+  border: 0.1rem solid var(--light-color);
+  border-radius: 1rem;
+  transition: box-shadow 0.2s;
+
+  &:hover:not(#{$self}--editing) {
+    box-shadow: 0px 1px 20px rgb(240 240 240 / 80%);
+
+    #{$self}__status,
+    #{$self}__remove,
+    #{$self}__edit {
+      opacity: 1;
+    }
+  }
+
+  &--done {
+    #{$self}__text,
+    #{$self}__date {
+      text-decoration: line-through;
+    }
+
+    #{$self}__status {
+      opacity: 1;
+    }
+
+    #{$self}__remove {
+      margin-left: 2.6rem;
+    }
+  }
+
+  &--editing {
+    pointer-events: none;
+
+    #{$self}__textarea,
+    #{$self}__save,
+    #{$self}__cancel,
+    #{$self}__datepicker {
+      pointer-events: all;
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    user-select: none;
+    background-color: var(--secondary-color);
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.4rem 2rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    position: relative;
+    width: 100%;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    text-align: left;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+
+  &__date {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bfbfbf;
+    font-size: 1.4rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    min-width: 6rem;
+    text-align: center;
+    margin-left: 1rem;
+  }
+
+  &__datepicker {
+    --dp-font-size: 1.4rem !important;
+    --dp-input-icon-padding: 0.5rem;
+    --dp-input-padding: 0.5rem;
+    --dp-border-color: var(--primary-color);
+    --dp-border-color-hover: var(--primary-color);
+    --dp-preview-font-size: 1.4rem !important;
+    --dp-cell-size: 2.4rem;
+    --dp-cell-padding: 0;
+
+    max-width: 6.5rem;
+
+    ::v-deep(.dp__input_icons) {
+      display: none !important;
+    }
+
+    ::v-deep(.dp__theme_light) {
+      --dp-primary-color: var(--primary-color) !important;
+    }
+
+    ::v-deep(.dp__input) {
+      font-size: 1.4rem;
+      text-align: center;
+      line-height: 1;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    left: 1rem;
+    bottom: -1.2rem;
+    font-size: 1rem;
+    color: #3573b5;
+  }
+
+  &__status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 2.4rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    i {
+      position: relative;
+      top: 0.1rem;
+      color: var(--primary-color)
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__remove,
+  &__edit,
+  &__save,
+  &__cancel {
+    height: 1.6rem;
+  }
+
+  &__remove,
+  &__edit {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  &__cancel,
+  &__remove {
+    margin-left: 1rem;
+  }
+
+  &__remove,
+  &__edit,
+  &__cancel {
+    color: var(--secondary-color);
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &__save {
+    color: var(--primary-color);
+  }
+
+  &__textarea {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 0.5rem;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    resize: none;
+    appearance: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f5f5f5;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: #f5f5f5;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background-color: var(--primary-color);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      -webkit-border-radius: 1rem;
+      -moz-border-radius: 1rem;
+    }
+  }
+}

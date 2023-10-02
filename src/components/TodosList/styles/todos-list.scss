@@ -1,0 +1,13 @@
+.todos-list {
+  display: flex;
+  justify-content: center;
+
+  &__items {
+    display: grid;
+    gap: 1.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+  }
+}

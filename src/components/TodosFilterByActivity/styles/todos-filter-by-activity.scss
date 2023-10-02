@@ -1,0 +1,21 @@
+.todos-filter-by-activity {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
+  border: 0.1rem solid var(--light-color);
+  border-radius: 1rem;
+
+  &--disabled {
+    pointer-events: none;
+    user-select: none;
+    background: var(--secondary-color);
+  }
+
+  &__button {
+    font-size: 1.6rem;
+
+    &:not(.button--primary):hover {
+      color: var(--primary-color);
+    }
+  }
+}
